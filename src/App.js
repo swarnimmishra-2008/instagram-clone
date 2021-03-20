@@ -1,20 +1,15 @@
+import { Switch, Route } from "react-router-dom";
+import Login from "./components/Login";
+import Home from "./components/Home";
 import "./assets/css/styles.css";
-import Navbar from "./components/Navbar";
-import Posts from "./components/Posts";
-import Sidebar from './components/Sidebar';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <Navbar />
-      <div className="home__container">
-        <Posts />
-        <div className="sidebar">
-          <Sidebar />
-        </div>
-      </div>
+      <Switch>
+        <Route path="/" component={Login} exact />
+        <Route path="/home" component={Home} />
+      </Switch>
     </div>
   );
 }
-
-export default App;
