@@ -1,0 +1,14 @@
+.home__container {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.posts {
+  flex: 2;
+}
+
+.sidebar {
+  flex: 1;
+}

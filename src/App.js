@@ -1,6 +1,7 @@
 import "./assets/css/styles.css";
 import Navbar from "./components/Navbar";
 import Posts from "./components/Posts";
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
@@ -8,7 +9,9 @@ function App() {
       <Navbar />
       <div className="home__container">
         <Posts />
-        <div className="right">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, modi.</div>
+        <div className="sidebar">
+          <Sidebar />
+        </div>
       </div>
     </div>
   );

@@ -13,5 +13,3 @@ export default function Posts() {
   );
 }
 
-// https://images.indulgexpress.com/uploads/user/imagelibrary/2019/6/21/original/20060425_SHA_0079-3_-_Copy.jpg
-// https://pbs.twimg.com/media/EinVetBUMAAx3cj.jpg:large

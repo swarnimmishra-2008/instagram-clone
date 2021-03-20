@@ -6,8 +6,13 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  background: #fafafa;
+}
+
 nav {
   padding: 0.3rem;
+  background: #fff;
   border: 1px solid transparent;
   border-bottom-color: #1b1b1b1e;
 }
@@ -29,21 +34,6 @@ nav .nav__menu {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-
-.home__container {
-  width: 70%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-}
-
-.posts {
-  flex: 3;
-}
-
-.right {
-  flex: 1;
 }
 
 mark {
@@ -84,5 +74,51 @@ mark {
 .post .post__footer p h4 {
   display: inline-block;
   margin-right: 10px;
+}
+
+.sidebar {
+  margin-top: 2rem;
+  margin-left: 1rem;
+  position: sticky;
+  top: 2rem;
+}
+
+.sidebar .sidebar__header,
+.sidebar .user {
+  padding: 0.4rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .user__info {
+  margin-left: 10px;
+}
+
+.sidebar .user__info p {
+  color: #a5a5a5;
+}
+
+.sidebar .suggestions {
+  color: #a5a5a5;
+  margin: 1rem 0;
+}
+
+.sidebar .currentUser__username, .sidebar h5 {
+  color: #000;
+}
+
+.home__container {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.posts {
+  flex: 2;
+}
+
+.sidebar {
+  flex: 1;
 }
 /*# sourceMappingURL=styles.css.map */
