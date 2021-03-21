@@ -5,16 +5,13 @@ import { Context } from "../Context/GlobalState";
 import { db } from "../firebase/config";
 
 export default function Navbar() {
-
   const [user, setUser] = useState({});
 
   const {
     user: { uid },
   } = useContext(Context);
 
-  // useEffect(() => {
-  //   console.log(db.collection('users').where("uid", '==', uid));
-  // }, [uid]);
+  
 
   return (
     <nav>
