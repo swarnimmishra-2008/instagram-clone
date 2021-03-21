@@ -1,7 +1,22 @@
-import FacebookIcon from "@material-ui/icons/Facebook";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../Context/GlobalState";
 
-export default function Signup() {
+export default function Signup({ history }) {
+  const { signup } = useContext(Context);
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+
+    signup(email, username, fullName, password);
+
+    history.push("/home");
+  };
+
   return (
     <div className="signup__container">
       <div className="form__area">
@@ -11,28 +26,61 @@ export default function Signup() {
             alt="Instagram Logo"
           />
           <h4>Sign up to see photos and videos from your friends.</h4>
-          <form>
+          <form onSubmit={handleSignup}>
             <div className="form__field">
-              <input type="email" id="Email" name="Email" required />
+              <input
+                type="email"
+                id="Email"
+                name="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
               <label htmlFor="Email">Email</label>
             </div>
             <div className="form__field">
-              <input type="text" id="Username" name="Username" required />
+              <input
+                type="text"
+                id="Username"
+                name="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
               <label htmlFor="Username">Username</label>
             </div>
             <div className="form__field">
-              <input type="password" id="password" name="Password" required />
+              <input
+                type="text"
+                id="FullName"
+                name="FullName"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                required
+              />
+              <label htmlFor="FullName">Full Name</label>
+            </div>
+            <div className="form__field">
+              <input
+                type="password"
+                id="password"
+                name="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
               <label htmlFor="Password">Password</label>
             </div>
             <button className="primary-insta-btn">Signup</button>
           </form>
           <p className="policies">
-            By signing up, you agree to our Terms , Data Policy and Cookies Policy .
+            By signing up, you agree to our Terms , Data Policy and Cookies
+            Policy .
           </p>
         </div>
         <div className="signup__area">
           <p>
-            Don't have and account? <Link>Signup</Link>
+            Have an account <Link to="/">Log in</Link>
           </p>
         </div>
         <p className="gettheapp">Get the App</p>

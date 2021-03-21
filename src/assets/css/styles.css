@@ -179,6 +179,7 @@ mark {
 .login__container form .form__field input,
 .signup__container form .form__field input {
   width: 100%;
+  font-size: small;
   border-radius: 0;
   border: 1px solid #1b1b1b1e;
   padding: 0.8rem 0.4rem 0.4rem 0.4rem;
