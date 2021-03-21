@@ -135,13 +135,21 @@ mark {
 }
 
 .login__container .form {
-  flex: 2;
-  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem 0;
+  background: #fff;
   border: 1px solid #1b1b1b1e;
 }
 
-.login__container .form img {
-  margin: 2.6rem 0;
+.login__container .form__area {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.login__container .form__area img {
+  margin: 1rem 0;
   width: 50%;
   object-fit: contain;
 }
@@ -191,5 +199,52 @@ mark {
   font-weight: bold;
   cursor: pointer;
   border: none;
+}
+
+.fb__login {
+  margin: 2rem 0 1rem 0;
+}
+
+.btn__authFb {
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: #3b5998;
+}
+
+.btn__authFb svg {
+  vertical-align: middle;
+}
+
+.forgotPassword {
+  text-decoration: none;
+  color: #3b5998;
+  font-size: 12px;
+}
+
+.signup__area {
+  padding: 1.2rem 0;
+  background: #fff;
+  border: 1px solid #1b1b1b1e;
+  margin: 0.5rem 0;
+}
+
+.signup__area p {
+  color: rgba(0, 0, 0, 0.802);
+}
+
+.signup__area a {
+  text-decoration: none;
+  color: #0095f6;
+  font-weight: bold;
+}
+
+.gettheapp {
+  margin: 1rem 0;
+}
+
+.stores a img {
+  width: 100%;
 }
 /*# sourceMappingURL=styles.css.map */
