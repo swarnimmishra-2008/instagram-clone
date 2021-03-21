@@ -1,4 +1,5 @@
-.login__container {
+.login__container,
+.signup__container {
   width: 60%;
   margin: auto;
   display: flex;
@@ -23,14 +24,15 @@
     text-align: center;
 
     img {
-      margin: 1rem 0;
+      // margin: 1rem 0;
       width: 50%;
       object-fit: contain;
     }
   }
 }
 
-.login__container form {
+.login__container form,
+.signup__container form {
   width: 85%;
   margin: auto;
 

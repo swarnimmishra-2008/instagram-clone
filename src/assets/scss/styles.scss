@@ -7,13 +7,13 @@
   font-family: "Roboto", sans-serif;
 }
 
-
 body {
   background: $background-color;
 }
 
 @import "navbar";
 @import "post";
-@import 'sidebar';
-@import 'home';
-@import "auth";
+@import "sidebar";
+@import "home";
+@import "login";
+@import "signup";
