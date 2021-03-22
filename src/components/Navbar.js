@@ -2,16 +2,10 @@ import { useState, useEffect, useContext } from "react";
 import HomeSharpIcon from "@material-ui/icons/HomeSharp";
 import Avatar from "@material-ui/core/Avatar";
 import { Context } from "../Context/GlobalState";
-import { db } from "../firebase/config";
 
 export default function Navbar() {
-  const [user, setUser] = useState({});
 
-  const {
-    user: { uid },
-  } = useContext(Context);
-
-  
+  const { user } = useContext(Context);
 
   return (
     <nav>

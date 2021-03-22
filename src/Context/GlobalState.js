@@ -6,11 +6,18 @@ export const Context = createContext({});
 export default function ContextProvider({ children }) {
   const [user, setUser] = useState({});
 
-  const login = (email, password) => {
+  const login = (email, password, redirect) => {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        setUser(result.user);
+        db.collection("users")
+          .where("uid", "==", result.user.uid)
+          .get()
+          .then((snapshot) =>
+            setUser(snapshot.docs.map((doc) => ({ ...doc.data() }))[0])
+          );
+
+        redirect();
       })
       .catch((err) => console.log(err));
   };
@@ -19,12 +26,20 @@ export default function ContextProvider({ children }) {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        setUser(result.user);
+        // Setting the user in firestore
         db.collection("users").add({
+          uid: result.user.uid,
           username,
           displayName: fullName,
           photoURL: result.user.photoURL,
         });
+
+        db.collection("users")
+          .where("uid", "==", result.user.uid)
+          .get()
+          .then((snapshot) =>
+            setUser(snapshot.docs.map((doc) => ({ ...doc.data() }))[0])
+          );
       })
       .catch((err) => console.log(err));
   };

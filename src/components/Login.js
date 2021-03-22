@@ -12,9 +12,7 @@ export default function Login({ history }) {
   const handlelogin = (e) => {
     e.preventDefault();
 
-    login(email, password);
-
-    history.push("/home");
+    login(email, password, () => history.push('/home'));
   };
 
   return (
