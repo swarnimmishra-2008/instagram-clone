@@ -4,12 +4,19 @@ import Avatar from "@material-ui/core/Avatar";
 import AddIcon from "@material-ui/icons/Add";
 import { Context } from "../Context/GlobalState";
 import UploadModal from "./UploadModal";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const { user } = useContext(Context);
   const [open, setOpen] = useState(false);
 
   const handleClose = () => setOpen(false);
+
+  const handleOpen = (e) => {
+    e.preventDefault();
+
+    setOpen(true);
+  };
 
   return (
     <nav>
@@ -19,10 +26,12 @@ export default function Navbar() {
           alt="Instagram Logo"
         />
         <div className="nav__menu">
-          <HomeSharpIcon />
-          <button onClick={() => setOpen(true)}>
+          <Link to="/home">
+            <HomeSharpIcon />
+          </Link>
+          <Link onClick={handleOpen}>
             <AddIcon />
-          </button>
+          </Link>
           {open && <UploadModal open={open} handleClose={handleClose} />}
           <Avatar alt={user?.displayName} src={user?.photoURL} />
         </div>

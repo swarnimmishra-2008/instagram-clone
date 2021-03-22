@@ -36,6 +36,10 @@ nav .nav__menu {
   align-items: center;
 }
 
+nav .nav__menu a {
+  color: #000;
+}
+
 mark {
   background: none;
   color: #006eff;
