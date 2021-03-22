@@ -1,11 +1,15 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import HomeSharpIcon from "@material-ui/icons/HomeSharp";
 import Avatar from "@material-ui/core/Avatar";
+import AddIcon from "@material-ui/icons/Add";
 import { Context } from "../Context/GlobalState";
+import UploadModal from "./UploadModal";
 
 export default function Navbar() {
-
   const { user } = useContext(Context);
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => setOpen(false);
 
   return (
     <nav>
@@ -16,6 +20,10 @@ export default function Navbar() {
         />
         <div className="nav__menu">
           <HomeSharpIcon />
+          <button onClick={() => setOpen(true)}>
+            <AddIcon />
+          </button>
+          {open && <UploadModal open={open} handleClose={handleClose} />}
           <Avatar alt={user?.displayName} src={user?.photoURL} />
         </div>
       </div>
