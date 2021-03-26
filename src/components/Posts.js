@@ -6,9 +6,11 @@ export default function Posts() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    db.collection("posts").orderBy('timestamp', -1).onSnapshot((snapshot) => {
-      setPosts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-    });
+    db.collection("posts")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        setPosts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      });
   }, []);
 
   return (
