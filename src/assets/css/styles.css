@@ -299,12 +299,14 @@ mark {
 }
 
 .modal__container .modal__body {
+  position: relative;
   background: #fff;
   border-radius: 2rem;
   padding: 2rem;
 }
 
 .modal__container .modal__body form {
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -375,5 +377,12 @@ mark {
   text-align: center;
   color: red;
   margin-top: 0.7em;
+}
+
+.close__uploadModal {
+  color: #333;
+  position: absolute;
+  top: 1rem;
+  right: 1.8rem;
 }
 /*# sourceMappingURL=styles.css.map */

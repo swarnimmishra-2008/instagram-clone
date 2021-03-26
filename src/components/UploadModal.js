@@ -5,6 +5,7 @@ import AddIcon from "@material-ui/icons/Add";
 import { storage, db } from "../firebase/config";
 import { Context } from "../Context/GlobalState";
 import ProgressBar from "./ProgressBar";
+import CloseIcon from "@material-ui/icons/Close";
 
 export default function UploadModal({ open, handleClose }) {
   const [file, setFile] = useState(null);
@@ -64,6 +65,9 @@ export default function UploadModal({ open, handleClose }) {
     <Modal open={open} onClose={handleClose}>
       <div className="modal__container">
         <div className="modal__body">
+          <a href="#!" onClick={handleClose} className="close__uploadModal">
+            <CloseIcon />
+          </a>
           <form onSubmit={handleUpload}>
             <input
               type="file"
