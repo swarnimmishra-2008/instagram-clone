@@ -44,12 +44,12 @@ export default function Navbar() {
               {...buttonProps}
             />
             <div className={isOpen ? "visible" : ""} role="menu">
-              <a {...itemProps[0]} href="https://example.com">
+              <Link {...itemProps[0]} to="/">
                 Regular link
-              </a>
-              <a {...itemProps[0]} href="/">
+              </Link>
+              <Link {...itemProps[1]} to="/">
                 With click handler
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,11 +1,11 @@
 import { useState, useContext, useEffect } from "react";
 import Modal from "@material-ui/core/Modal";
-import PublishIcon from "@material-ui/icons/Publish";
 import AddIcon from "@material-ui/icons/Add";
 import { storage, db } from "../firebase/config";
 import { Context } from "../Context/GlobalState";
 import ProgressBar from "./ProgressBar";
 import CloseIcon from "@material-ui/icons/Close";
+import firebase from "firebase";
 
 export default function UploadModal({ open, handleClose }) {
   const [file, setFile] = useState(null);
@@ -13,6 +13,7 @@ export default function UploadModal({ open, handleClose }) {
   const allowedTypes = ["image/jpg", "image/jpeg", "image/png"];
   const [error, setError] = useState("");
   const [progress, setProgress] = useState(0);
+  const [isUploading, setIsUploading] = useState(false);
 
   const { user } = useContext(Context);
 
@@ -26,8 +27,10 @@ export default function UploadModal({ open, handleClose }) {
     if (allowedTypes.includes(file.type)) {
       const storageRef = storage.ref(file.name);
 
-      // file uploading
+      // When file starts uploading, set it to true, so as to show uploading text in the upload button
+      setIsUploading(true);
 
+      // file uploading
       storageRef.put(file).on(
         "state_changed",
         (snapshot) => {
@@ -43,6 +46,9 @@ export default function UploadModal({ open, handleClose }) {
 
           // Set progress back to null after file upload completion
           setProgress(null);
+          
+          // After uploadng, set isUploading to false
+          setIsUploading(false);
 
           // Adding to the database
           db.collection("posts").add({
@@ -53,6 +59,7 @@ export default function UploadModal({ open, handleClose }) {
               photoURL: user.photoURL,
               username: user.username,
             },
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           });
         }
       );
@@ -90,8 +97,8 @@ export default function UploadModal({ open, handleClose }) {
               onChange={(e) => setCaption(e.target.value)}
               value={caption}
             ></textarea>
-            <button className="primary-insta-btn">
-              <PublishIcon /> Upload
+            <button className="primary-insta-btn" disabled={isUploading}>
+              {isUploading ? "..." : "Upload"}
             </button>
             {progress > 0 && <ProgressBar progress={progress} />}
             {error && <div className="upload__error">{error}</div>}
