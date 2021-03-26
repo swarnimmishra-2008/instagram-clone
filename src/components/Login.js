@@ -2,17 +2,25 @@ import { useState, useContext } from "react";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import { Link } from "react-router-dom";
 import { Context } from "../Context/GlobalState";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 export default function Login({ history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const { login } = useContext(Context);
 
   const handlelogin = (e) => {
     e.preventDefault();
 
-    login(email, password, () => history.push('/home'));
+    setIsLoading(true);
+    login(
+      email,
+      password,
+      () => history.push("/home"),
+      () => setIsLoading(false)
+    );
   };
 
   return (
@@ -52,7 +60,13 @@ export default function Login({ history }) {
               />
               <label htmlFor="Password">Password</label>
             </div>
-            <button className="primary-insta-btn">Log In</button>
+            <button className="primary-insta-btn" disabled={isLoading}>
+              {!isLoading ? (
+                "Log In"
+              ) : (
+                <CircularProgress size={20} color="inherit" />
+              )}
+            </button>
             <div className="fb__login">
               <button className="btn__authFb">
                 <FacebookIcon /> Log in with Facebook

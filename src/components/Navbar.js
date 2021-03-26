@@ -5,10 +5,12 @@ import AddIcon from "@material-ui/icons/Add";
 import { Context } from "../Context/GlobalState";
 import UploadModal from "./UploadModal";
 import { Link } from "react-router-dom";
+import useDropdownMenu from "react-accessible-dropdown-menu-hook";
 
 export default function Navbar() {
   const { user } = useContext(Context);
   const [open, setOpen] = useState(false);
+  const { buttonProps, itemProps, isOpen } = useDropdownMenu(2);
 
   const handleClose = () => setOpen(false);
 
@@ -21,10 +23,12 @@ export default function Navbar() {
   return (
     <nav>
       <div className="nav__container">
-        <img
-          src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-          alt="Instagram Logo"
-        />
+        <div className="nav__navlogo">
+          <img
+            src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+            alt="Instagram Logo"
+          />
+        </div>
         <div className="nav__menu">
           <Link to="/home">
             <HomeSharpIcon />
@@ -33,7 +37,21 @@ export default function Navbar() {
             <AddIcon />
           </Link>
           {open && <UploadModal open={open} handleClose={handleClose} />}
-          <Avatar alt={user?.displayName} src={user?.photoURL} />
+          <div className="avatar__menu">
+            <Avatar
+              alt={user?.displayName}
+              src={user?.photoURL}
+              {...buttonProps}
+            />
+            <div className={isOpen ? "visible" : ""} role="menu">
+              <a {...itemProps[0]} href="https://example.com">
+                Regular link
+              </a>
+              <a {...itemProps[0]} href="/">
+                With click handler
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </nav>

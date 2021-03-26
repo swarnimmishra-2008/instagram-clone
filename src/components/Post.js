@@ -12,8 +12,8 @@ export default function Post({ post }) {
         <img src={post.url} alt="Post" />
       </div>
       <div className="post__footer">
+        <h4 className="post__username">{post.user.displayName}</h4>
         <p>
-          <h4 className="post__username">{post.user.displayName}</h4>
           <Hashtags>{post.caption}</Hashtags>
         </p>
       </div>

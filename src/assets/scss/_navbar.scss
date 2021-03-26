@@ -11,19 +11,60 @@ nav {
     justify-content: space-between;
     align-items: center;
 
+    .nav__navlogo {
+      flex: 2;
+    }
+
     img {
       object-fit: contain;
     }
   }
 
   .nav__menu {
-    width: 200px;
+    flex: 0.5;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
     a {
       color: #000;
     }
   }
+}
+
+.avatar__menu {
+  position: relative;
+}
+
+div[role="menu"] {
+  width: 200px;
+  visibility: hidden;
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  left: -100%;
+  transform: translate(-50%);
+  border: 1px solid #1b1b1b1e;
+  padding: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  
+  a {
+    padding: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: $primary-btn-color;
+    
+    &:hover {
+      color: #fff;
+      background-color: $primary-btn-color;
+    }
+  }
+}
+
+div[role="menu"].visible {
+  visibility: visible;
 }

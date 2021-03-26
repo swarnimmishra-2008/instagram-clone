@@ -6,7 +6,7 @@ export const Context = createContext({});
 export default function ContextProvider({ children }) {
   const [user, setUser] = useState({});
 
-  const login = (email, password, redirect) => {
+  const login = (email, password, redirect, disableLoading) => {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
@@ -18,6 +18,7 @@ export default function ContextProvider({ children }) {
           );
 
         redirect();
+        disableLoading();
       })
       .catch((err) => console.log(err));
   };

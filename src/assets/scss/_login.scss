@@ -78,6 +78,11 @@
   font-weight: bold;
   cursor: pointer;
   border: none;
+
+  &:disabled {
+    background: rgb(160, 160, 160);
+    cursor: default;
+  }
 }
 
 .fb__login {
