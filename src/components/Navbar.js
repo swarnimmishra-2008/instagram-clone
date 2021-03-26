@@ -7,6 +7,7 @@ import UploadModal from "./UploadModal";
 import { Link, useHistory } from "react-router-dom";
 import useDropdownMenu from "react-accessible-dropdown-menu-hook";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 export default function Navbar() {
   const { user, logout } = useContext(Context);
@@ -53,7 +54,7 @@ export default function Navbar() {
             />
             <div className={isOpen ? "visible" : ""} role="menu">
               <Link {...itemProps[0]} to="/">
-                Regular link
+                <AccountCircleIcon /> My Profile
               </Link>
               <Link {...itemProps[1]} to="/" onClick={handleLogout}>
                 <ExitToAppIcon /> Logout

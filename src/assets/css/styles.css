@@ -66,15 +66,20 @@ div[role="menu"] {
 }
 
 div[role="menu"] a {
-  padding: 0.5rem;
+  font-size: small;
+  padding: 0.3rem;
+  margin-top: 0.5rem;
   text-align: center;
   text-decoration: none;
-  color: #0095f6;
+  color: #333;
+}
+
+div[role="menu"] a svg {
+  vertical-align: middle;
 }
 
 div[role="menu"] a:hover {
-  color: #fff;
-  background-color: #0095f6;
+  background-color: #1b1b1b1e;
 }
 
 div[role="menu"].visible {

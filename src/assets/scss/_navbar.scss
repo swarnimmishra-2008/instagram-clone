@@ -51,16 +51,20 @@ div[role="menu"] {
   z-index: 10;
   border-radius: 4px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
-  
+
   a {
-    padding: 0.5rem;
+    svg {
+      vertical-align: middle;
+    }
+    font-size: small;
+    padding: 0.3rem;
+    margin-top: 0.5rem;
     text-align: center;
     text-decoration: none;
-    color: $primary-btn-color;
-    
+    color: #333;
+
     &:hover {
-      color: #fff;
-      background-color: $primary-btn-color;
+      background-color: #1b1b1b1e;
     }
   }
 }
