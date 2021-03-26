@@ -13,11 +13,10 @@ export default function ContextProvider({ children }) {
         db.collection("users")
           .where("uid", "==", result.user.uid)
           .get()
-          .then((snapshot) =>
-            setUser(snapshot.docs.map((doc) => ({ ...doc.data() }))[0])
-          );
-
-        redirect();
+          .then((snapshot) => {
+            setUser(snapshot.docs.map((doc) => ({ ...doc.data() }))[0]);
+            redirect();
+          });
       })
       .catch((err) => console.log(err));
   };
@@ -45,22 +44,24 @@ export default function ContextProvider({ children }) {
   };
 
   const logout = (redirect) => {
-    auth.signOut().then(() => {
-      // Signing out user
-      setUser({});
+    auth
+      .signOut()
+      .then(() => {
+        // Signing out user
+        setUser({});
 
-      // redirect back to login page
-      redirect()
-    })
-    .catch(err => alert(err))
-  }
+        // redirect back to login page
+        redirect();
+      })
+      .catch((err) => alert(err));
+  };
 
   const value = {
     user,
     setUser,
     signup,
     login,
-    logout
+    logout,
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
