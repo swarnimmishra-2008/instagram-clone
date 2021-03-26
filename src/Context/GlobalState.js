@@ -44,11 +44,23 @@ export default function ContextProvider({ children }) {
       .catch((err) => console.log(err));
   };
 
+  const logout = (redirect) => {
+    auth.signOut().then(() => {
+      // Signing out user
+      setUser({});
+
+      // redirect back to login page
+      redirect()
+    })
+    .catch(err => alert(err))
+  }
+
   const value = {
     user,
     setUser,
     signup,
     login,
+    logout
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

@@ -4,13 +4,15 @@ import Avatar from "@material-ui/core/Avatar";
 import AddIcon from "@material-ui/icons/Add";
 import { Context } from "../Context/GlobalState";
 import UploadModal from "./UploadModal";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import useDropdownMenu from "react-accessible-dropdown-menu-hook";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 export default function Navbar() {
-  const { user } = useContext(Context);
+  const { user, logout } = useContext(Context);
   const [open, setOpen] = useState(false);
   const { buttonProps, itemProps, isOpen } = useDropdownMenu(2);
+  const history = useHistory();
 
   const handleClose = () => setOpen(false);
 
@@ -18,6 +20,12 @@ export default function Navbar() {
     e.preventDefault();
 
     setOpen(true);
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+
+    logout(() => history.push("/"));
   };
 
   return (
@@ -47,8 +55,8 @@ export default function Navbar() {
               <Link {...itemProps[0]} to="/">
                 Regular link
               </Link>
-              <Link {...itemProps[1]} to="/">
-                With click handler
+              <Link {...itemProps[1]} to="/" onClick={handleLogout}>
+                <ExitToAppIcon /> Logout
               </Link>
             </div>
           </div>
