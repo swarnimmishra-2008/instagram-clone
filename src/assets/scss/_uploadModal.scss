@@ -64,3 +64,28 @@
     }
   }
 }
+
+.progress__bar {
+  height: 5px;
+  width: 100%;
+  background: #ddd;
+  position: relative;
+  border-radius: 7px;
+  margin-top: 0.3rem;
+
+  .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: $primary-btn-color;
+    transition: all 0.4s;
+  }
+}
+
+.upload__error {
+  text-align: center;
+  color: red;
+  margin-top: 0.7em;
+}

@@ -40,6 +40,12 @@ nav .nav__menu a {
   color: #000;
 }
 
+.no__postError {
+  margin: 4rem 0;
+  color: #a5a5a5;
+  font-size: 2rem;
+}
+
 mark {
   background: none;
   color: #006eff;
@@ -344,5 +350,30 @@ mark {
 
 .modal__body form .primary-insta-btn svg {
   vertical-align: middle;
+}
+
+.progress__bar {
+  height: 5px;
+  width: 100%;
+  background: #ddd;
+  position: relative;
+  border-radius: 7px;
+  margin-top: 0.3rem;
+}
+
+.progress__bar .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: #0095f6;
+  transition: all 0.4s;
+}
+
+.upload__error {
+  text-align: center;
+  color: red;
+  margin-top: 0.7em;
 }
 /*# sourceMappingURL=styles.css.map */
