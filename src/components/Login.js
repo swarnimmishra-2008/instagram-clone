@@ -8,7 +8,7 @@ export default function Login({ history }) {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const { login } = useContext(Context);
+  const { login, loginWithGoogle } = useContext(Context);
 
   const handlelogin = (e) => {
     e.preventDefault();
@@ -21,6 +21,10 @@ export default function Login({ history }) {
       () => history.push("/home"),
       () => setIsLoading(false)
     );
+  };
+
+  const handleGoogleLogin = () => {
+    loginWithGoogle(() => history.push('/set-profile'));
   };
 
   return (
@@ -62,7 +66,9 @@ export default function Login({ history }) {
               )}
             </button>
             <div className="fb__login">
-              <button className="btn__authFb">Log in with Google</button>
+              <button className="btn__authFb" onClick={handleGoogleLogin}>
+                Log in with Google
+              </button>
             </div>
             <a href="#!" className="forgotPassword">
               Forgot Password?

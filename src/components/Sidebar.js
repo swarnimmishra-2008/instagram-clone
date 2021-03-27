@@ -9,9 +9,9 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <Avatar alt={user?.displayName} src={user.photoURL} />
+        <Avatar alt={user?.fullName} src={user?.photoURL} />
         <div className="user__info">
-          <h4 className="currentUser__username">{user?.displayName}</h4>
+          <h4 className="currentUser__username">{user?.fullName}</h4>
           <p className="currentUser__fullName">{user?.username}</p>
         </div>
       </div>

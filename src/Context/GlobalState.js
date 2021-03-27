@@ -1,5 +1,6 @@
 import { useState, createContext } from "react";
 import { auth, db } from "../firebase/config";
+import firebase from "firebase";
 
 export const Context = createContext({});
 
@@ -35,7 +36,7 @@ export default function ContextProvider({ children }) {
         db.collection("users").add({
           uid: result.user.uid,
           username,
-          displayName: fullName,
+          fullName,
           photoURL: result.user.photoURL,
         });
 
@@ -65,12 +66,45 @@ export default function ContextProvider({ children }) {
       .catch((err) => alert(err));
   };
 
+  const loginWithGoogle = (redirect) => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        // Setting the user in firestore
+        db.collection("users").add({
+          uid: result.user.uid,
+          username: "",
+          fullName: "",
+          photoURL: result.user.photoURL,
+        });
+
+        // Setting user to state from users collection
+        db.collection("users")
+          .where("uid", "==", result.user.uid)
+          .get()
+          .then((snapshot) => {
+            setUser(
+              snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))[0]
+            );
+            
+            // Redirect to home component
+            redirect();
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const value = {
     user,
     setUser,
     signup,
     login,
     logout,
+    loginWithGoogle,
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

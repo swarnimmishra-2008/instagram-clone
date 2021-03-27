@@ -216,19 +216,22 @@ mark {
 }
 
 .login__container form,
-.signup__container form {
+.signup__container form,
+.section__setProfile form {
   width: 85%;
   margin: auto;
 }
 
 .login__container form .form__field,
-.signup__container form .form__field {
+.signup__container form .form__field,
+.section__setProfile form .form__field {
   margin: 0.5rem 0;
   position: relative;
 }
 
 .login__container form .form__field label,
-.signup__container form .form__field label {
+.signup__container form .form__field label,
+.section__setProfile form .form__field label {
   font-size: smaller;
   position: absolute;
   top: 40%;
@@ -238,7 +241,8 @@ mark {
 }
 
 .login__container form .form__field input,
-.signup__container form .form__field input {
+.signup__container form .form__field input,
+.section__setProfile form .form__field input {
   width: 100%;
   font-size: small;
   border-radius: 0;
@@ -247,13 +251,15 @@ mark {
 }
 
 .login__container form .form__field input:focus + label,
-.signup__container form .form__field input:focus + label {
+.signup__container form .form__field input:focus + label,
+.section__setProfile form .form__field input:focus + label {
   top: 0;
   font-size: x-small;
 }
 
 .login__container form .form__field input:valid + label,
-.signup__container form .form__field input:valid + label {
+.signup__container form .form__field input:valid + label,
+.section__setProfile form .form__field input:valid + label {
   top: 0;
   font-size: x-small;
 }
@@ -440,5 +446,27 @@ mark {
   position: absolute;
   top: 1rem;
   right: 1.8rem;
+}
+
+.section__setProfile {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__setProfile .container {
+  background: #fff;
+  border: 1px solid #1b1b1b1e;
+  width: 30%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section__setProfile .container form {
+  margin-top: 2rem;
 }
 /*# sourceMappingURL=styles.css.map */
