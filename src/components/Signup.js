@@ -14,6 +14,7 @@ export default function Signup({ history }) {
   const handleSignup = (e) => {
     e.preventDefault();
 
+    setIsLoading(true);
     signup(email, username, fullName, password, () => history.push("/home"));
   };
 
@@ -71,7 +72,7 @@ export default function Signup({ history }) {
               />
               <label htmlFor="Password">Password</label>
             </div>
-            <button className="primary-insta-btn">
+            <button className="primary-insta-btn" disabled={isLoading}>
               {!isLoading ? (
                 "Sign up"
               ) : (

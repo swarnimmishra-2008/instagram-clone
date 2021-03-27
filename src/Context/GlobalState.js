@@ -43,12 +43,11 @@ export default function ContextProvider({ children }) {
         db.collection("users")
           .where("uid", "==", result.user.uid)
           .get()
-          .then((snapshot) =>
-            setUser(snapshot.docs.map((doc) => ({ ...doc.data() }))[0])
-          );
-
-        // Redirect to home component
-        redirect();
+          .then((snapshot) => {
+            setUser(snapshot.docs.map((doc) => ({ ...doc.data() }))[0]);
+            // Redirect to home component
+            redirect();
+          });
       })
       .catch((err) => console.log(err));
   };
