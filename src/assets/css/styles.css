@@ -45,6 +45,7 @@ nav .nav__menu a {
 }
 
 .avatar__menu {
+  cursor: pointer;
   position: relative;
 }
 
@@ -68,10 +69,9 @@ div[role="menu"] {
 div[role="menu"] a {
   font-size: small;
   padding: 0.3rem;
-  margin-top: 0.5rem;
-  text-align: center;
   text-decoration: none;
   color: #333;
+  padding-left: 1rem;
 }
 
 div[role="menu"] a svg {
@@ -80,6 +80,10 @@ div[role="menu"] a svg {
 
 div[role="menu"] a:hover {
   background-color: #1b1b1b1e;
+}
+
+div[role="menu"] a:not(:nth-child(1)) {
+  margin-top: 0.5rem;
 }
 
 div[role="menu"].visible {

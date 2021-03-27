@@ -50,7 +50,7 @@ export default function UploadModal({ open, handleClose }) {
           // After uploadng, set isUploading to false
           setIsUploading(false);
 
-          // Adding to the database
+          // Adding to the database (post collection)
           db.collection("posts").add({
             url,
             caption,
@@ -61,6 +61,13 @@ export default function UploadModal({ open, handleClose }) {
             },
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           });
+
+          // Adding to the database (users collection)
+          db.collection('users').doc(user.id).collection('my_posts').add({
+            url,
+            caption,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          })
         }
       );
     } else {

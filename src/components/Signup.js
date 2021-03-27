@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../Context/GlobalState";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 export default function Signup({ history }) {
   const { signup } = useContext(Context);
@@ -8,13 +9,12 @@ export default function Signup({ history }) {
   const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSignup = (e) => {
     e.preventDefault();
 
-    signup(email, username, fullName, password);
-
-    history.push("/home");
+    signup(email, username, fullName, password, () => history.push("/home"));
   };
 
   return (
@@ -71,7 +71,13 @@ export default function Signup({ history }) {
               />
               <label htmlFor="Password">Password</label>
             </div>
-            <button className="primary-insta-btn">Signup</button>
+            <button className="primary-insta-btn">
+              {!isLoading ? (
+                "Sign up"
+              ) : (
+                <CircularProgress size={20} color="inherit" />
+              )}
+            </button>
           </form>
           <p className="policies">
             By signing up, you agree to our Terms , Data Policy and Cookies

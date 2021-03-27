@@ -15,11 +15,12 @@ export default function Login({ history }) {
     e.preventDefault();
 
     setIsLoading(true);
-    
+
     login(
       email,
       password,
       () => history.push("/home"),
+      () => setIsLoading(false)
     );
   };
 

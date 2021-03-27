@@ -6,7 +6,7 @@ export const Context = createContext({});
 export default function ContextProvider({ children }) {
   const [user, setUser] = useState({});
 
-  const login = (email, password, redirect) => {
+  const login = (email, password, redirect, disableLoading) => {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
@@ -14,14 +14,20 @@ export default function ContextProvider({ children }) {
           .where("uid", "==", result.user.uid)
           .get()
           .then((snapshot) => {
-            setUser(snapshot.docs.map((doc) => ({ ...doc.data() }))[0]);
+            setUser(
+              snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))[0]
+            );
+            disableLoading();
             redirect();
           });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        disableLoading();
+      });
   };
 
-  const signup = (email, username, fullName, password) => {
+  const signup = (email, username, fullName, password, redirect) => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
@@ -33,12 +39,16 @@ export default function ContextProvider({ children }) {
           photoURL: result.user.photoURL,
         });
 
+        // Setting user to state from users collection
         db.collection("users")
           .where("uid", "==", result.user.uid)
           .get()
           .then((snapshot) =>
             setUser(snapshot.docs.map((doc) => ({ ...doc.data() }))[0])
           );
+
+        // Redirect to home component
+        redirect();
       })
       .catch((err) => console.log(err));
   };
