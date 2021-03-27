@@ -30,6 +30,7 @@ nav .nav__container .nav__navlogo {
 }
 
 nav .nav__container img {
+  width: 15%;
   object-fit: contain;
 }
 

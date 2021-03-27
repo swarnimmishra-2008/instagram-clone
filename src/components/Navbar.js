@@ -33,10 +33,7 @@ export default function Navbar() {
     <nav>
       <div className="nav__container">
         <div className="nav__navlogo">
-          <img
-            src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-            alt="Instagram Logo"
-          />
+          <img src="/assets/images/insta_logo.png" alt="Instagram Logo" />
         </div>
         <div className="nav__menu">
           <Link to="/home">
