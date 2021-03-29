@@ -24,7 +24,11 @@ export default function UploadModal({ open, handleClose }) {
   const handleUpload = (e) => {
     e.preventDefault();
 
-    if (allowedTypes.includes(file.type)) {
+    if (file === null) {
+      setError("Please select a file to upload");
+    } else if (!allowedTypes.includes(file.type)) {
+      setError("Only JPG/PNG allowed");
+    } else {
       const storageRef = storage.ref(file.name);
 
       // When file starts uploading, set it to true, so as to show uploading text in the upload button
@@ -46,9 +50,13 @@ export default function UploadModal({ open, handleClose }) {
 
           // Set progress back to null after file upload completion
           setProgress(null);
-          
+
           // After uploadng, set isUploading to false
           setIsUploading(false);
+
+          // After uploding, reset file and caption
+          setFile(null);
+          setCaption("");
 
           // Adding to the database (post collection)
           db.collection("posts").add({
@@ -63,15 +71,13 @@ export default function UploadModal({ open, handleClose }) {
           });
 
           // Adding to the database (users collection)
-          db.collection('users').doc(user.id).collection('my_posts').add({
+          db.collection("users").doc(user.id).collection("my_posts").add({
             url,
             caption,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-          })
+          });
         }
       );
-    } else {
-      setError("Only JPG/PNG allowed");
     }
   };
 

@@ -4,6 +4,10 @@
   position: sticky;
   top: 2rem;
 
+  @include tablet {
+    position: static;
+  }
+
   .sidebar__header,
   .user {
     padding: 0.4rem 0;
@@ -15,7 +19,6 @@
     margin-left: 10px;
 
     p {
-      
     }
   }
 
@@ -24,7 +27,8 @@
     margin: 1rem 0;
   }
 
-  .currentUser__username, h5 {
+  .currentUser__username,
+  h5 {
     color: #000;
   }
 }

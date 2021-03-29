@@ -29,9 +29,27 @@ nav .nav__container .nav__navlogo {
   flex: 2;
 }
 
+@media screen and (max-width: 500px) {
+  nav .nav__container .nav__navlogo {
+    flex: 1;
+  }
+}
+
 nav .nav__container img {
   width: 15%;
   object-fit: contain;
+}
+
+@media screen and (max-width: 1000px) {
+  nav .nav__container img {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  nav .nav__container img {
+    width: 80%;
+  }
 }
 
 nav .nav__menu {
@@ -39,6 +57,12 @@ nav .nav__menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (max-width: 500px) {
+  nav .nav__menu {
+    flex: 1;
+  }
 }
 
 nav .nav__menu a {
@@ -144,6 +168,12 @@ mark {
   top: 2rem;
 }
 
+@media screen and (max-width: 1000px) {
+  .sidebar {
+    position: static;
+  }
+}
+
 .sidebar .sidebar__header,
 .sidebar .user {
   padding: 0.4rem 0;
@@ -160,7 +190,8 @@ mark {
   margin: 1rem 0;
 }
 
-.sidebar .currentUser__username, .sidebar h5 {
+.sidebar .currentUser__username,
+.sidebar h5 {
   color: #000;
 }
 
@@ -169,6 +200,12 @@ mark {
   margin: auto;
   display: flex;
   justify-content: space-between;
+}
+
+@media screen and (max-width: 1000px) {
+  .home__container {
+    flex-direction: column-reverse;
+  }
 }
 
 .posts {
@@ -188,9 +225,23 @@ mark {
   padding: 2rem 0;
 }
 
+@media screen and (max-width: 1000px) {
+  .login__container,
+  .signup__container {
+    display: block;
+  }
+}
+
 .login__container .hero__bg,
 .signup__container .hero__bg {
   flex: 1;
+}
+
+@media screen and (max-width: 1000px) {
+  .login__container .hero__bg,
+  .signup__container .hero__bg {
+    display: none;
+  }
 }
 
 .login__container .form,
@@ -334,6 +385,18 @@ mark {
   padding: 0 3rem;
 }
 
+@media screen and (max-width: 1000px) {
+  .signup__container {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .signup__container {
+    width: 90%;
+  }
+}
+
 .signup__container h4 {
   color: #a5a5a5;
   font-weight: bold;
@@ -367,6 +430,13 @@ mark {
   padding: 2rem;
 }
 
+@media screen and (max-width: 500px) {
+  .modal__container .modal__body {
+    padding: 1.4rem;
+    border-radius: 0.7rem;
+  }
+}
+
 .modal__container .modal__body form {
   margin-top: 1rem;
   display: flex;
@@ -389,6 +459,12 @@ mark {
   justify-content: center;
   margin: 1rem 0;
   border-radius: 4px;
+}
+
+@media screen and (max-width: 500px) {
+  .modal__body form .file__placeholder {
+    height: 70px;
+  }
 }
 
 .modal__body form .file__placeholder:hover {

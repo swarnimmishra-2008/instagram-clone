@@ -6,8 +6,17 @@
   justify-content: space-between;
   padding: 2rem 0;
 
+  // Make it block on screen < 1000px
+  @include tablet {
+    display: block;
+  }
+
   .hero__bg {
     flex: 1;
+
+    @include tablet {
+      display: none;
+    }
   }
 
   .form {

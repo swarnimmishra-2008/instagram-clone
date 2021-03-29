@@ -7,6 +7,11 @@
   align-items: center;
 
   .modal__body {
+    @include small {
+      padding: 1.4rem;
+      border-radius: 0.7rem;
+    }
+
     position: relative;
     background: #fff;
     border-radius: 2rem;
@@ -26,6 +31,10 @@
 }
 
 .modal__body form .file__placeholder {
+  @include small {
+    height: 70px;
+  }
+
   height: 100px;
   width: 100%;
   border: 5px dashed rgb(153, 153, 153);

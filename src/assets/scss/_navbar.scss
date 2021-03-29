@@ -13,15 +13,31 @@ nav {
 
     .nav__navlogo {
       flex: 2;
+
+      @include small {
+        flex: 1;
+      }
     }
 
     img {
       width: 15%;
       object-fit: contain;
+
+      @include tablet {
+        width: 30%;
+      }
+
+      @include small {
+        width: 80%;
+      }
     }
   }
 
   .nav__menu {
+    @include small {
+      flex: 1;
+    }
+
     flex: 0.5;
     display: flex;
     justify-content: space-between;
