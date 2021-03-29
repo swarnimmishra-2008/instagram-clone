@@ -1,14 +1,39 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../Context/GlobalState";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { db, auth } from "../firebase/config";
+import InstagramIcon from "@material-ui/icons/Instagram";
 
 export default function Login({ history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const { login, loginWithGoogle } = useContext(Context);
+  // To store if the page is loading while refresh or re-authenticating
+  const [isPageLoading, setIsPageLoading] = useState(true);
+
+  // To get the data from the Context
+  const { login, loginWithGoogle, setUser } = useContext(Context);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      // Get the user document from the firestore corresponding to logged
+      // in user's uid
+      db.collection("users")
+        .where("uid", "==", user.uid)
+        .get()
+        .then((snapshot) => {
+          setUser(
+            snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))[0]
+          );
+          setIsPageLoading(false);
+
+          // Redirect to home page
+          history.push("/home");
+        });
+    });
+  }, []);
 
   const handlelogin = (e) => {
     e.preventDefault();
@@ -24,8 +49,17 @@ export default function Login({ history }) {
   };
 
   const handleGoogleLogin = () => {
-    loginWithGoogle(() => history.push('/set-profile'));
+    loginWithGoogle(() => history.push("/set-profile"));
   };
+
+  // To show a loading page when page loads on re-authentication
+  if (isPageLoading) {
+    return (
+      <div className="instagram__pageLoading">
+        <InstagramIcon style={{ transform: "scale(2.5)", color: "gray" }} />
+      </div>
+    );
+  }
 
   return (
     <div className="login__container">

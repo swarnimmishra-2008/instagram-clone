@@ -216,6 +216,17 @@ mark {
   flex: 1;
 }
 
+.instagram__pageLoading {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .login__container,
 .signup__container {
   width: 60%;
