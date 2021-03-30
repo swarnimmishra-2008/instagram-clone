@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import Avatar from "@material-ui/core/Avatar";
-import User from "./User";
 import { Context } from "../Context/GlobalState";
 
 export default function Sidebar() {
@@ -14,10 +13,6 @@ export default function Sidebar() {
           <h4 className="currentUser__username">{user?.fullName}</h4>
           <p className="currentUser__fullName">{user?.username}</p>
         </div>
-      </div>
-      <div className="suggestions">
-        <h4 className="suggestions">Suggestions for you</h4>
-        <User />
       </div>
     </div>
   );

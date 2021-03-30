@@ -35,19 +35,19 @@ nav .nav__container .nav__navlogo {
   }
 }
 
-nav .nav__container img {
+nav .nav__container img.insta__logo {
   width: 15%;
   object-fit: contain;
 }
 
 @media screen and (max-width: 1000px) {
-  nav .nav__container img {
+  nav .nav__container img.insta__logo {
     width: 30%;
   }
 }
 
 @media screen and (max-width: 500px) {
-  nav .nav__container img {
+  nav .nav__container img.insta__logo {
     width: 80%;
   }
 }
@@ -171,6 +171,7 @@ mark {
 @media screen and (max-width: 1000px) {
   .sidebar {
     position: static;
+    margin-left: 0;
   }
 }
 
