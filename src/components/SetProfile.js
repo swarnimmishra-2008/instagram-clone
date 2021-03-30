@@ -1,9 +1,10 @@
-import { useState, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { db, auth } from "../firebase/config";
 import { Context } from "../Context/GlobalState";
 import { useHistory } from "react-router-dom";
+import LoadingInstagram from "./LoadingInstagram";
 
 export default function SetProfile() {
   const [fullName, setFullName] = useState("");
@@ -12,7 +13,13 @@ export default function SetProfile() {
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
 
-  const { setUser, user } = useContext(Context);
+  const { setUser, user, isPageLoading, setIsPageLoading } = useContext(
+    Context
+  );
+
+  useEffect(() => {
+    setIsPageLoading(true);
+  }, []);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -38,6 +45,10 @@ export default function SetProfile() {
       })
       .catch((err) => console.log(err));
   };
+
+  if (isPageLoading) {
+    return <LoadingInstagram />;
+  }
 
   return (
     <section className="section__setProfile">
@@ -68,7 +79,7 @@ export default function SetProfile() {
           </div>
           <div className="form__field">
             <input
-              type="text"
+              type="password"
               id="Password"
               name="Password"
               value={password}

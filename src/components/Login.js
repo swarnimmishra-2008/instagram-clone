@@ -1,38 +1,24 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../Context/GlobalState";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { db, auth } from "../firebase/config";
-import InstagramIcon from "@material-ui/icons/Instagram";
+import LoadingInstagram from "./LoadingInstagram";
 
 export default function Login({ history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // To store if the page is loading while refresh or re-authenticating
-  const [isPageLoading, setIsPageLoading] = useState(true);
-
   // To get the data from the Context
-  const { login, loginWithGoogle, setUser } = useContext(Context);
+  const {
+    login,
+    loginWithGoogle,
+    isPageLoading,
+    setIsPageLoading,
+  } = useContext(Context);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      // Get the user document from the firestore corresponding to logged
-      // in user's uid
-      db.collection("users")
-        .where("uid", "==", user.uid)
-        .get()
-        .then((snapshot) => {
-          setUser(
-            snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))[0]
-          );
-          setIsPageLoading(false);
-
-          // Redirect to home page
-          history.push("/home");
-        });
-    });
+    setIsPageLoading(true);
   }, []);
 
   const handlelogin = (e) => {
@@ -49,16 +35,13 @@ export default function Login({ history }) {
   };
 
   const handleGoogleLogin = () => {
+    console.log("executed");
     loginWithGoogle(() => history.push("/set-profile"));
   };
 
   // To show a loading page when page loads on re-authentication
   if (isPageLoading) {
-    return (
-      <div className="instagram__pageLoading">
-        <InstagramIcon style={{ transform: "scale(2.5)", color: "gray" }} />
-      </div>
-    );
+    return <LoadingInstagram />;
   }
 
   return (
@@ -99,8 +82,8 @@ export default function Login({ history }) {
                 <CircularProgress size={20} color="inherit" />
               )}
             </button>
-            <div className="fb__login">
-              <button className="btn__authFb" onClick={handleGoogleLogin}>
+            <div className="google__login">
+              <button className="btn__authGoogle" onClick={handleGoogleLogin}>
                 Log in with Google
               </button>
             </div>

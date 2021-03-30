@@ -6,6 +6,7 @@ export const Context = createContext({});
 
 export default function ContextProvider({ children }) {
   const [user, setUser] = useState({});
+  const [isPageLoading, setIsPageLoading] = useState(true);
 
   const login = (email, password, redirect, disableLoading) => {
     auth
@@ -46,6 +47,7 @@ export default function ContextProvider({ children }) {
           .get()
           .then((snapshot) => {
             setUser(snapshot.docs.map((doc) => ({ ...doc.data() }))[0]);
+
             // Redirect to home component
             redirect();
           });
@@ -73,25 +75,21 @@ export default function ContextProvider({ children }) {
       .signInWithPopup(provider)
       .then((result) => {
         // Setting the user in firestore
-        db.collection("users").add({
+        const googleUser = {
           uid: result.user.uid,
           username: "",
           fullName: "",
           photoURL: result.user.photoURL,
-        });
+        };
 
-        // Setting user to state from users collection
-        db.collection("users")
-          .where("uid", "==", result.user.uid)
-          .get()
-          .then((snapshot) => {
-            setUser(
-              snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))[0]
-            );
-            
-            // Redirect to home component
-            redirect();
-          });
+        db.collection("users").add(googleUser);
+
+        // Setting the global state user
+        setUser(googleUser);
+      })
+      .then(() => {
+        // Redirect to setProfile component
+        redirect();
       })
       .catch((err) => {
         console.log(err);
@@ -105,6 +103,8 @@ export default function ContextProvider({ children }) {
     login,
     logout,
     loginWithGoogle,
+    isPageLoading,
+    setIsPageLoading,
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
