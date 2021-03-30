@@ -13,7 +13,7 @@ export default function App() {
         <Route path="/" component={Login} exact />
         <Route path="/signup" component={Signup} />
         <PrivateRoute path="/home" component={Home} />
-        <PrivateRoute path="/set-profile" component={SetProfile} />
+        <Route path="/set-profile" component={SetProfile} />
       </Switch>
     </div>
   );
