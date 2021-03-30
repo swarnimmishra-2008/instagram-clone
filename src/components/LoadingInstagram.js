@@ -10,7 +10,6 @@ const LoadingInstagram = () => {
   const { setIsPageLoading, setUser } = useContext(Context);
 
   useEffect(() => {
-
     const unsubscribe = auth.onAuthStateChanged((user) => {
       // Get the user document from the firestore corresponding to logged
       // in user's uid
@@ -32,9 +31,12 @@ const LoadingInstagram = () => {
             // If he/she has then redirect to home page
             // else he/she will remain on set-profile page
             if (
+              currentUser &&
               currentUser.fullName.length > 0 &&
               currentUser.username.length > 0
             ) {
+              // set the user to global state
+
               // Redirect to home page
               history.push("/home");
             } else {
@@ -43,6 +45,9 @@ const LoadingInstagram = () => {
             }
           });
       } else {
+        // Redirect to login page
+        history.push("/");
+
         // If the user is null, stop the loading
         setIsPageLoading(false);
       }

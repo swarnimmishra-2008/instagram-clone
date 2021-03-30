@@ -1,10 +1,12 @@
 import { useState, createContext } from "react";
 import { auth, db } from "../firebase/config";
 import firebase from "firebase";
+import { useHistory } from "react-router-dom";
 
 export const Context = createContext({});
 
 export default function ContextProvider({ children }) {
+  const history = useHistory();
   const [user, setUser] = useState({});
   const [isPageLoading, setIsPageLoading] = useState(true);
 
@@ -68,28 +70,53 @@ export default function ContextProvider({ children }) {
       .catch((err) => alert(err));
   };
 
-  const loginWithGoogle = (redirect) => {
+  const loginWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
 
     auth
       .signInWithPopup(provider)
       .then((result) => {
-        // Setting the user in firestore
-        const googleUser = {
-          uid: result.user.uid,
-          username: "",
-          fullName: "",
-          photoURL: result.user.photoURL,
-        };
+        // Check if user already exists, if exists then direcly log him/her in
+        db.collection("users")
+          .where("uid", "==", result.user.uid)
+          .get()
+          .then((snapshot) => {
+            const userExists = snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+            }))[0];
 
-        db.collection("users").add(googleUser);
+            if (
+              userExists === {} ||
+              userExists === null ||
+              userExists === undefined
+            ) {
+              // Setting the user in firestore
+              const googleUser = {
+                uid: result.user.uid,
+                username: "",
+                fullName: "",
+                photoURL: result.user.photoURL,
+              };
 
-        // Setting the global state user
-        setUser(googleUser);
-      })
-      .then(() => {
-        // Redirect to setProfile component
-        redirect();
+              db.collection("users")
+                .add(googleUser)
+                .then(() => {
+                  // Setting the global state user
+                  setUser(googleUser);
+                })
+                .then(() => {
+                  // Redirect to set-profile component
+                  history.push("/set-profile");
+                });
+            } else {
+              // Turn off loading
+              setIsPageLoading(false);
+              // If user already exists in the firestore database, then log him in with his data as state
+              setUser(userExists);
+              history.push("/home");
+            }
+          });
       })
       .catch((err) => {
         console.log(err);
