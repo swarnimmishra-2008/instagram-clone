@@ -17,9 +17,9 @@ export default function SetProfile() {
     Context
   );
 
-  // useEffect(() => {
-  //   setIsPageLoading(true);
-  // }, []);
+  useEffect(() => {
+    setIsPageLoading(true);
+  }, []);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -46,9 +46,9 @@ export default function SetProfile() {
       .catch((err) => console.log(err));
   };
 
-  // if (isPageLoading) {
-  //   return <LoadingInstagram />;
-  // }
+  if (isPageLoading) {
+    return <LoadingInstagram />;
+  }
 
   return (
     <section className="section__setProfile">
