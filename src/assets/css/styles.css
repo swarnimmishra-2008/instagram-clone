@@ -553,6 +553,18 @@ mark {
   align-items: center;
 }
 
+@media screen and (max-width: 768px) {
+  .section__setProfile .container {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .section__setProfile .container {
+    width: 80%;
+  }
+}
+
 .section__setProfile .container form {
   margin-top: 2rem;
 }
