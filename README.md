@@ -60,10 +60,6 @@ Follow the commands below to clone this repository on your system
 
 <img src="https://cdn.sanity.io/images/izpqy9cv/production/42a2a8b64596c4167c905aa7afb6c2a365279b76-1321x743.png" width="500" title="Google OAuth" />
 
-### New Chat
-
-<img src="https://user-images.githubusercontent.com/48273777/105491923-25678080-5cdd-11eb-910f-8e6d4476b398.png" width="500" title="New Chat" />
-
 ### Picture Uploading
 
 <img src="https://cdn.sanity.io/images/izpqy9cv/production/4d6942cbaa0c72f4371431255c9ac50a3f3dd86b-1319x743.png" width="500" title="New Chat" />
