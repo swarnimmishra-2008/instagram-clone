@@ -35,7 +35,7 @@ export default function Login({ history }) {
   };
 
   const handleGoogleLogin = () => {
-    console.log("executed");
+    setIsLoading(true);
     loginWithGoogle(() => history.push("/set-profile"));
   };
 
