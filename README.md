@@ -29,7 +29,7 @@ Follow the commands below to clone this repository on your system
 
 * Material UI
 
-* CSS
+* SCSS
 
   
   
