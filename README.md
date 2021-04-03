@@ -54,7 +54,7 @@ Follow the commands below to clone this repository on your system
   
 ### Signup Page
 
-<img src="https://cdn.sanity.io/images/izpqy9cv/production/f8c488b574322d30f4bcdc97a443f9c9c6f0e83c-1319x743.png " width="500" title="Google Auth" />
+<img src="https://cdn.sanity.io/images/izpqy9cv/production/f8c488b574322d30f4bcdc97a443f9c9c6f0e83c-1319x743.png" width="500" title="Signup Page" />
 
   ### Google OAuth 
 
