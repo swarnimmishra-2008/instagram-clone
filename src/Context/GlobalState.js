@@ -74,7 +74,7 @@ export default function ContextProvider({ children }) {
     const provider = new firebase.auth.GoogleAuthProvider();
 
     auth
-      .signInWithPopup(provider)
+      .signInWithRedirect(provider)
       .then((result) => {
         // Check if user already exists, if exists then direcly log him/her in
         db.collection("users")
