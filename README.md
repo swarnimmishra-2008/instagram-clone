@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+<div>
+	<h1 align="center"> Instagram Clone</h1>
+	<p align="center">This is a Instagram clone that I built using ReactJS and Firebase as a part of my personal project.</p>
+	<img src="https://cdn.sanity.io/images/izpqy9cv/production/51577cf63044f4b699fd1eb680d9c21e540f8d6f-1280x896.jpg" />
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 👩‍💻 Installation
+Follow the commands below to clone this repository on your system
 
-## Available Scripts
+```bash
 
-In the project directory, you can run:
+1. git clone https://github.com/shaan71845/instagram-clone.git
 
-### `npm start`
+2. cd instagram-clone
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. npm install
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+4. npm start
 
-### `npm test`
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  
 
-### `npm run build`
+## ⏬ Tech Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* ReactJS 🔥
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Firebase
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Material UI
 
-### `npm run eject`
+* CSS
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  
+  
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 👇 Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* ⚒ Authentication with Email/Password and Google OAuth.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* 🖼️ Picture uploading.
 
-## Learn More
+* 🌈 Hashtags Highlighting.
+* 🏛️ Private Routing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📷 Screenshots
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Login Page
+<img src="https://cdn.sanity.io/images/izpqy9cv/production/62b2209ff033b85f49402a84c6859f1111687a44-1320x744.png" width="500" title="Login Page"/>
 
-### Analyzing the Bundle Size
+  
+### Signup Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img src="https://cdn.sanity.io/images/izpqy9cv/production/f8c488b574322d30f4bcdc97a443f9c9c6f0e83c-1319x743.png " width="500" title="Google Auth" />
 
-### Making a Progressive Web App
+  ### Google OAuth 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img src="https://cdn.sanity.io/images/izpqy9cv/production/42a2a8b64596c4167c905aa7afb6c2a365279b76-1321x743.png" width="500" title="Google OAuth" />
 
-### Advanced Configuration
+### New Chat
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<img src="https://user-images.githubusercontent.com/48273777/105491923-25678080-5cdd-11eb-910f-8e6d4476b398.png" width="500" title="New Chat" />
 
-### Deployment
+### Picture Uploading
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<img src="https://cdn.sanity.io/images/izpqy9cv/production/4d6942cbaa0c72f4371431255c9ac50a3f3dd86b-1319x743.png" width="500" title="New Chat" />
+  
+  
 
-### `npm run build` fails to minify
+### 👇 Live Demo - 
+[Click here](https://instagram-c68d0.web.app/) to go to the Live Demo 🔥 🔥
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
