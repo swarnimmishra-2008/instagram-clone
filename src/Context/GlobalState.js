@@ -89,7 +89,7 @@ export default function ContextProvider({ children }) {
     const provider = new firebase.auth.GoogleAuthProvider();
 
     auth
-      .signInWithRedirect(provider)
+      .signInWithPopup(provider)
       .then((result) => {
         // Check if user already exists, if exists then direcly log him/her in
         db.collection("users")
@@ -134,8 +134,8 @@ export default function ContextProvider({ children }) {
           });
       })
       .catch((err) => {
-        console.log(err);
-        setOAuthError(err);
+        console.log(err.message);
+        setOAuthError(err.message);
       });
   };
 
@@ -148,6 +148,8 @@ export default function ContextProvider({ children }) {
     loginWithGoogle,
     isPageLoading,
     setIsPageLoading,
+    OAuthError,
+    authError
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

@@ -4,7 +4,7 @@ import { Context } from "../Context/GlobalState";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 export default function Signup({ history }) {
-  const { signup } = useContext(Context);
+  const { signup, authError } = useContext(Context);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("");
@@ -86,6 +86,9 @@ export default function Signup({ history }) {
                 <CircularProgress size={20} color="inherit" />
               )}
             </button>
+            <div className="auth__error">
+              <small>{authError}</small>
+            </div>
           </form>
           <p className="policies">
             By signing up, you agree to our Terms , Data Policy and Cookies

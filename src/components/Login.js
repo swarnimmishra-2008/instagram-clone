@@ -15,11 +15,13 @@ export default function Login({ history }) {
     loginWithGoogle,
     isPageLoading,
     setIsPageLoading,
+    authError,
+    OAuthError,
   } = useContext(Context);
 
   useEffect(() => {
     setIsPageLoading(true);
-  }, []);
+  }, [setIsPageLoading]);
 
   const handlelogin = (e) => {
     e.preventDefault();
@@ -81,9 +83,16 @@ export default function Login({ history }) {
                 <CircularProgress size={20} color="inherit" />
               )}
             </button>
-            <div className="auth__error">
-              {/* <small>{error}</small> */}
-            </div>
+            {authError && (
+              <div className="auth__error">
+                <small>{authError}</small>
+              </div>
+            )}
+            {OAuthError && (
+              <div className="auth__error">
+                <small>{OAuthError}</small>
+              </div>
+            )}
             <div className="google__login">
               <button className="btn__authGoogle" onClick={handleGoogleLogin}>
                 Log in with Google

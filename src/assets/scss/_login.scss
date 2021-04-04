@@ -38,6 +38,11 @@
       object-fit: contain;
     }
   }
+
+  .auth__error {
+    margin: 1rem 0 0 0;
+    color: red;
+  }
 }
 
 .login__container form,
