@@ -9,6 +9,8 @@ export default function ContextProvider({ children }) {
   const history = useHistory();
   const [user, setUser] = useState({});
   const [isPageLoading, setIsPageLoading] = useState(true);
+  const [OAuthError, setOAuthError] = useState(null);
+  const [authError, setAuthError] = useState(null);
 
   const login = (email, password, redirect, disableLoading) => {
     auth
@@ -21,17 +23,25 @@ export default function ContextProvider({ children }) {
             setUser(
               snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))[0]
             );
-            disableLoading();
+
+            disableLoading(); // Disable loading button
             redirect();
           });
       })
       .catch((err) => {
-        console.log(err);
-        disableLoading();
+        setAuthError(err.message);
+        disableLoading(); // Disable loading button
       });
   };
 
-  const signup = (email, username, fullName, password, redirect) => {
+  const signup = (
+    email,
+    username,
+    fullName,
+    password,
+    redirect,
+    disableLoading
+  ) => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
@@ -50,11 +60,16 @@ export default function ContextProvider({ children }) {
           .then((snapshot) => {
             setUser(snapshot.docs.map((doc) => ({ ...doc.data() }))[0]);
 
+            disableLoading(); // Disable the signup button loading
+
             // Redirect to home component
             redirect();
           });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        disableLoading(); // Disable the signup button loading
+        setAuthError(err.message);
+      });
   };
 
   const logout = (redirect) => {
@@ -120,6 +135,7 @@ export default function ContextProvider({ children }) {
       })
       .catch((err) => {
         console.log(err);
+        setOAuthError(err);
       });
   };
 

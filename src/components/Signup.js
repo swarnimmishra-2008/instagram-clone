@@ -15,7 +15,14 @@ export default function Signup({ history }) {
     e.preventDefault();
 
     setIsLoading(true);
-    signup(email, username, fullName, password, () => history.push("/home"));
+    signup(
+      email,
+      username,
+      fullName,
+      password,
+      () => history.push("/home"),
+      () => setIsLoading(false)
+    );
   };
 
   return (

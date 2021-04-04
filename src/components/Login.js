@@ -81,6 +81,9 @@ export default function Login({ history }) {
                 <CircularProgress size={20} color="inherit" />
               )}
             </button>
+            <div className="auth__error">
+              {/* <small>{error}</small> */}
+            </div>
             <div className="google__login">
               <button className="btn__authGoogle" onClick={handleGoogleLogin}>
                 Log in with Google
