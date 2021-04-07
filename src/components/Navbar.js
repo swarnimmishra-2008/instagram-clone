@@ -32,13 +32,7 @@ export default function Navbar() {
   return (
     <nav>
       <div className="nav__container">
-        <div className="nav__navlogo">
-          <img
-            className="insta__logo"
-            src="/assets/images/insta_logo.png"
-            alt="Instagram Logo"
-          />
-        </div>
+        <div className="nav__navlogo"></div>
         <div className="nav__menu">
           <Link to="/home">
             <HomeSharpIcon />
