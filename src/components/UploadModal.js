@@ -63,7 +63,7 @@ export default function UploadModal({ open, handleClose }) {
             url,
             caption,
             user: {
-              displayName: user.fullName,
+              fullName: user.fullName,
               photoURL: user.photoURL,
               username: user.username,
             },
