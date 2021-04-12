@@ -47,7 +47,7 @@ export default function Login({ history }) {
 
   return (
     <div className="login__container">
-      <div className="hero__bg"></div>
+      <h1>Instagram Clone</h1>
       <div className="form__area">
         <div className="form">
           <form onSubmit={handlelogin}>
@@ -105,7 +105,6 @@ export default function Login({ history }) {
             Don't have and account? <Link to="/signup">Signup</Link>
           </p>
         </div>
-        <p className="gettheapp">Get the App</p>
       </div>
     </div>
   );

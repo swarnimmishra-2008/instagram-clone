@@ -27,6 +27,7 @@ export default function Signup({ history }) {
 
   return (
     <div className="signup__container">
+      <h1>Instagram Clone</h1>
       <div className="form__area">
         <div className="form">
           <h4>Sign up to see photos and videos from your friends.</h4>
@@ -96,7 +97,6 @@ export default function Signup({ history }) {
             Have an account <Link to="/">Log in</Link>
           </p>
         </div>
-        <p className="gettheapp">Get the App</p>
       </div>
     </div>
   );
