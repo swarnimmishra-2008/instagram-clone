@@ -13,6 +13,26 @@ nav {
 
     .nav__navlogo {
       flex: 2;
+      font-size: large;
+      text-decoration: none;
+      background: -webkit-linear-gradient(
+        #405de6,
+        #5851db,
+        #833ab4,
+        #c13584,
+        #e1306c,
+        #fd1d1d,
+        #fd1d1d,
+        #f77737,
+        #fcaf45,
+        #ffdc80
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      & * {
+        text-decoration: none;
+      }
 
       @include small {
         flex: 1;

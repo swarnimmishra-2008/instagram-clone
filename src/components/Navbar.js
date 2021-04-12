@@ -32,7 +32,10 @@ export default function Navbar() {
   return (
     <nav>
       <div className="nav__container">
-        <div className="nav__navlogo"></div>
+        <div className="nav__navlogo">
+          <Link to="/home">Instgram Clone</Link>
+        </div>
+
         <div className="nav__menu">
           <Link to="/home">
             <HomeSharpIcon />
