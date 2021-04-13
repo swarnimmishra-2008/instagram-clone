@@ -33,6 +33,13 @@ mark {
     img {
       object-fit: cover;
       width: 100%;
+      opacity: 0.89;
+      cursor: pointer;
+      transition: all 0.4s;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 

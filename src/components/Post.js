@@ -6,10 +6,12 @@ import { db } from "../firebase/config";
 import { Context } from "../Context/GlobalState";
 import firebase from "firebase";
 import PostComment from "./PostComment";
+import PostModal from "./PostModal";
 
 export default function Post({ post }) {
   const [comment, setComment] = useState("");
   const [postComments, setPostComments] = useState([]);
+  const [isModal, setIsModal] = useState(false);
   const { user } = useContext(Context);
 
   // This effect will help to load post's comment from the firestore DB
@@ -49,8 +51,8 @@ export default function Post({ post }) {
         <Avatar alt={post.user.fullName} src={post.user.photoURL} />
         <h4>{post.user.username}</h4>
       </div>
-      <div className="post__body">
-        <img src={post.url} alt="Post" />
+      <div className="post__body" onClick={() => setIsModal(true)}>
+        <img src={post.url} alt="Post" title="Click to view in full screen" />
       </div>
       <div className="post__footer">
         <p className="post__caption">
@@ -59,7 +61,7 @@ export default function Post({ post }) {
       </div>
       <div className="post__comments">
         {postComments.slice(0, 2).map((comment) => (
-          <PostComment comment={comment} />
+          <PostComment comment={comment} key={comment.id} />
         ))}
       </div>
       <form className="post__commentForm" onSubmit={handleCommentForm}>
@@ -74,6 +76,9 @@ export default function Post({ post }) {
           <SendIcon />
         </button>
       </form>
+      {isModal && (
+        <PostModal post={post} isModal={isModal} setIsModal={setIsModal} />
+      )}
     </div>
   );
 }
