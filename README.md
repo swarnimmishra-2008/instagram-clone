@@ -1,7 +1,7 @@
 <div>
 	<h1 align="center"> Instagram Clone</h1>
 	<p align="center">This is a Instagram clone that I built using ReactJS and Firebase as a part of my personal project.</p>
-	<img src="https://user-images.githubusercontent.com/48273777/114641885-82793e00-9cf0-11eb-81ec-4abb17100646.png" />
+	<img src="https://user-images.githubusercontent.com/48273777/114642041-cd935100-9cf0-11eb-9241-33bfc606a0b4.png" />
 </div>
 
 ## 👩‍💻 Installation
