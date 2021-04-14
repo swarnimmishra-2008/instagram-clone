@@ -1,6 +1,7 @@
+
 <div>
 	<h1 align="center"> Instagram Clone</h1>
-	<p align="center">This is a Instagram clone that I built using ReactJS and Firebase as a part of my personal project.</p>
+	<p align="center">A simple and easy to use Instagram Clone made using ReactJS and Firebase. </p>
 	<img src="https://user-images.githubusercontent.com/48273777/114642041-cd935100-9cf0-11eb-9241-33bfc606a0b4.png" />
 </div>
 
@@ -46,26 +47,24 @@ Follow the commands below to clone this repository on your system
   
 
 ## 📷 Screenshots
-
-
-### Login Page
-<img src="https://cdn.sanity.io/images/izpqy9cv/production/62b2209ff033b85f49402a84c6859f1111687a44-1320x744.png" width="500" title="Login Page"/>
+> Login Page
+<img src="https://user-images.githubusercontent.com/48273777/114642482-9ffad780-9cf1-11eb-8002-de020d5c7ef9.png" width="500" title="Login Page"/>
 
   
-### Signup Page
+> Signup Page
 
-<img src="https://cdn.sanity.io/images/izpqy9cv/production/f8c488b574322d30f4bcdc97a443f9c9c6f0e83c-1319x743.png" width="500" title="Signup Page" />
+<img src="https://user-images.githubusercontent.com/48273777/114642489-a38e5e80-9cf1-11eb-83a6-e4ebcb87a3c0.png" width="500" title="Signup Page" />
 
-  ### Google OAuth 
+>Google OAuth 
 
-<img src="https://cdn.sanity.io/images/izpqy9cv/production/42a2a8b64596c4167c905aa7afb6c2a365279b76-1321x743.png" width="500" title="Google OAuth" />
+<img src="https://user-images.githubusercontent.com/48273777/114642636-e0f2ec00-9cf1-11eb-8252-e475bc325911.png" width="500" title="Google OAuth" />
 
-### Picture Uploading
+> Picture Uploading
 
-<img src="https://cdn.sanity.io/images/izpqy9cv/production/4d6942cbaa0c72f4371431255c9ac50a3f3dd86b-1319x743.png" width="500" title="New Chat" />
+<img src="https://user-images.githubusercontent.com/48273777/114642710-0253d800-9cf2-11eb-95cb-8177a14790dd.png" width="500" title="New Chat" />
   
   
 
 ### 👇 Live Demo - 
-[Click here](https://instagram-c68d0.web.app/) to go to the Live Demo 🔥 🔥
+[Click here](https://instagram-clone-dbe40.web.app//) to go to the Live Demo 🔥 🔥
 
