@@ -19,7 +19,7 @@ export default function SetProfile() {
 
   useEffect(() => {
     setIsPageLoading(true);
-  }, []);
+  }, [setIsPageLoading]);
 
   const handleUpdate = (e) => {
     e.preventDefault();

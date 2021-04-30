@@ -54,7 +54,7 @@ const LoadingInstagram = () => {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [history, setIsPageLoading, setUser]);
 
   return (
     <div className="instagram__pageLoading">

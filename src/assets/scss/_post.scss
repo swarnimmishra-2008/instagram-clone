@@ -16,6 +16,7 @@ mark {
   flex-direction: column;
   border: 1px solid #1b1b1b1e;
   border-radius: 3.5px;
+  max-width: 700px;
   margin: 2rem 0;
 
   .post__header {
@@ -26,6 +27,7 @@ mark {
 
     h4 {
       margin-left: 10px;
+      word-break: break-all;
     }
   }
 
@@ -50,11 +52,13 @@ mark {
     .post__caption {
       display: block;
       margin: 0.8rem 0;
+      word-break: break-all;
     }
   }
 }
 
 .post__comments {
+  word-break: break-all;
   .post__commentText {
     margin: 0.8rem 0;
     font-size: small;
